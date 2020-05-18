@@ -1,8 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Botton, Container } from "./styles";
 
 function App() {
+  const fetchPhrases = () => {
+    console.log("fetching...");
+  };
   return (
-    <h1>Breaking Bad</h1>
+    <Container>
+      <Botton onClick={fetchPhrases}>Obtener Frase</Botton>
+    </Container>
   );
 }
 
