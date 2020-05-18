@@ -1,11 +1,13 @@
 import React from "react";
+import { PhraseContainer } from "../styles";
 
 const Phrase = ({ phrase }) => {
+    if (Object.keys(phrase).length === 0) return null;
   return (
-    <div>
+    <PhraseContainer>
       <h1>{phrase.quote}</h1>
       <p>{phrase.author}</p>
-    </div>
+    </PhraseContainer>
   );
 };
 
