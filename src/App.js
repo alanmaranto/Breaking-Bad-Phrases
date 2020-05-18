@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Botton, Container } from "./styles";
 import Phrase from "./components/Phrase";
 
@@ -12,6 +12,11 @@ function App() {
     const phrase = await api.json();
     setPhrase(phrase[0]);
   };
+
+  useEffect(() => {
+    fetchPhrases()
+  }, []);
+
   return (
     <Container>
       <Phrase phrase={phrase}></Phrase>
