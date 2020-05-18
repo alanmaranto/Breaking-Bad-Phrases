@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Botton, Container } from "./styles";
+import Phrase from "./components/Phrase";
 
 function App() {
+  const [phrase, setPhrase] = useState({});
+
   const fetchPhrases = async () => {
-    const api = await fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
+    const api = await fetch(
+      "https://breaking-bad-quotes.herokuapp.com/v1/quotes"
+    );
     const phrase = await api.json();
-    console.log(phrase[0])
+    setPhrase(phrase[0]);
   };
   return (
     <Container>
+      <Phrase phrase={phrase}></Phrase>
       <Botton onClick={fetchPhrases}>Obtener Frase</Botton>
     </Container>
   );
