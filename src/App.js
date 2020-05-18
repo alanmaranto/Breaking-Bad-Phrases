@@ -2,8 +2,10 @@ import React from "react";
 import { Botton, Container } from "./styles";
 
 function App() {
-  const fetchPhrases = () => {
-    console.log("fetching...");
+  const fetchPhrases = async () => {
+    const api = await fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
+    const phrase = await api.json();
+    console.log(phrase[0])
   };
   return (
     <Container>
